@@ -5,8 +5,10 @@ node{
 	}
 	stage('stage2') {
 		sh '''echo stage2 steps'''
+		sh "java -version"
 	}
 	stage('stage3') {
 		sh '''echo stage3 steps'''
+		sh "gradle -version"
 	}
 }
