@@ -7,7 +7,7 @@ node{
 		sh "${path}/gradle build"
 	}
 	stage('Deploy to Tomcat') {
-		sh '''echo stage3 steps'''
+		echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
 		sh "java -version"
 	}
 }
