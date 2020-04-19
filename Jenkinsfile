@@ -11,6 +11,6 @@ node{
 		sh "java -version"
 	}
 	stage('Email Notification') {
-		mail bcc:"",body: """<p>Check console output at <a href='${env.BUILD_URL}console'>${env.JOB_NAME}</a></p>""",cc:"",from:"enroll@1kosmos.com",to:"aslam@1kosmos.com",subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'"
+		mail bcc:"",body: """Check console output at ${env.BUILD_URL}console""",cc:"",from:"enroll@1kosmos.com",to:"aslam@1kosmos.com",subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'"
 	}	
 }
