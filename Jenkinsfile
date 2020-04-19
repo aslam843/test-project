@@ -10,9 +10,7 @@ node{
 		echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
 		sh "java -version"
 	}
-	post {
-		always {
-		    emailext body: """<p>Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>""", recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'"
-		}
-    	}
+	stage('Email Notification') {
+		mail bcc:"",body: """<p>Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>""",cc:"",from:"enroll@1kosmos.com",replyto:"",to:"aslam@1kosmos.com",subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'"
+	}	
 }
